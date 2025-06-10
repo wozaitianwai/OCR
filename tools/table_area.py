@@ -122,14 +122,13 @@ def get_y_pos_by_line(rotated_binary):
 
 
 
-def get_table_area(file,gray):
+def get_table_area(file, gray):
     '''
+    Extract table regions from a gray image.
 
     :param file: 文件名称
     :param gray: 灰度图
-    :param table_split_implicit:表格类型
-    :param place_name: 地名
-    :return:
+    :return: 提取到的表格图像列表
     '''
 
     tables = get_table(gray)

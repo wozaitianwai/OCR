@@ -8,7 +8,7 @@ from base_utils import *
 
 
 
-def repire_y_nums(binary_z, y_scale, right_num, max_try_times=50):
+def repair_y_nums(binary_z, y_scale, right_num, max_try_times=50):
     '''
     根据制定的纵线数量选择参数 改进 可以用二分查找 或者
     @param binary_z:
@@ -30,7 +30,7 @@ def repire_y_nums(binary_z, y_scale, right_num, max_try_times=50):
         else:
             break
         if y_scale < 0 or y_scale > 50 or num > max_try_times:
-            print(5 / 0)
+            raise ValueError("Failed to locate correct line positions")
     return y_point_arr
 
 
@@ -105,7 +105,7 @@ def get_position_arr(binary_z, cols_list):
     x_point_arr, y_point_arr = get_table_coordinate(bitwise_and_z, max_span=25)  # 如果异常修改为10
 
     if len(x_point_arr) != right_num:
-        x_point_arr = repire_y_nums(binary_z, y_scale=20, right_num=right_num)
+        x_point_arr = repair_y_nums(binary_z, y_scale=20, right_num=right_num)
 
     return x_point_arr, y_point_arr
 
