@@ -64,7 +64,17 @@ python test.py
 ![img](https://github.com/dirac472/tableOCR/blob/main/table_image/1_0.jpg) 
 
 OCR识别结果：
-![img](https://github.com/dirac472/tableOCR/blob/main/result/img.png) 
+![img](https://github.com/dirac472/tableOCR/blob/main/result/img.png)
 
 # 愿景
 让你的工作或生活有点儿副产品
+
+## GUI工具
+新增 `gui_table_cropper.py`，可以在本地运行简单界面调整参数并对图片或 PDF 进行表格检测、切割，并保存到指定目录：
+```bash
+python gui_table_cropper.py
+```
+依赖安装：
+```bash
+pip install opencv-python-headless pillow PyMuPDF
+```
