@@ -186,13 +186,10 @@ def preprocess_files( img_folder):
             res.to_excel(result_file,index=False)
 
 
-def update_db_data(session, update_query, params):
-    '''
-    更新数据库
-    :param update_query:
-    :param params:
-    :return:
-    '''
+def update_db_data(update_query, params):
+    """使用独立的 Session 执行更新语句并在结束后关闭连接"""
+
+    session = Session()
     result = session.execute(update_query, params)
 
     try:
@@ -227,7 +224,7 @@ def save_gray_z_position(imagePath, x_point_arr, y_point_arr):
               'min_row_height': min(row_span_list),
               'path': imagePath}
 
-    update_db_data(session, update_query, params)
+    update_db_data(update_query, params)
     print('添加%s成功' % os.path.basename(imagePath))
 
 
